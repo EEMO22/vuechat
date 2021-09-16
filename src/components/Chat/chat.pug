@@ -5,11 +5,7 @@
                 router-link(:to="{name: 'channel', params: { cname: channel }}") {{ channel }}
     .channel-name {{ $route.params.cname }}
     .messages 
-        ul
-            li(v-for="(mes) in messages")
-                .message {{ mes.body }}
-                .date {{ mes.date }}
-                .name {{ mes.user.name }}
+        message-list(:messages='messages')
     .form 
         input(type="text" v-model="message")
         input(type="button" value="SEND" "@click"="send_message")

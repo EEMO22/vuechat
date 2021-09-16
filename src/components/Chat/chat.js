@@ -3,12 +3,16 @@ import {
     GET_CHANNELS
     // SET_MESSAGES
 } from '../../store/mutation-types'
+import MessageList from '../MessageList'
 
 export default {
     name: 'chat',
     mounted() {
         this.GET_CHANNELS()
         this.GET_MESSAGES(this.$route.params.cname)
+    },
+    components: {
+        'message-list': MessageList
     },
     computed: {
         ...mapGetters([
